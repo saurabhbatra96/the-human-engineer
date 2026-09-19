@@ -6,6 +6,13 @@ Engineer* and her book *The Bhagavad Gita for Effortless Understanding*.
 Rebuilt as hand-written HTML/CSS from the original Framer design, so the site
 is dependency-free, fast, and hostable anywhere.
 
+Design source: <https://olive-series-780689.framer.app/> — colours, type scale
+and layout metrics were measured from that build. Note that only `/book` was
+server-rendered there; the other pages existed only as client-rendered Framer
+frames.
+
+Live: <https://saurabhbatra96.github.io/the-human-engineer/>
+
 ## Pages
 
 | File | Page |
