@@ -115,7 +115,7 @@ design, which is still in the repository. Switching back is one link per page:
 <link rel="stylesheet" href="assets/css/style.css">
 ```
 
-All ornament — the margin vine, the lotus rules, the corner florets, the journey
+All ornament — the margin vine, the lotus rules, the corner florets, the quest
 headpiece — is CSS background art built from inline SVG. There are no image
 requests for any of it.
 

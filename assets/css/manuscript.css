@@ -64,20 +64,19 @@
 
   --floret: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='22' height='22' viewBox='0 0 22 22'%3E%3Cg fill='none' stroke='%23C08A2E' stroke-width='1.2'%3E%3Cpath d='M11 1C14.5 4.5 14.5 7.5 11 11C7.5 7.5 7.5 4.5 11 1Z'/%3E%3Cpath d='M11 21C7.5 17.5 7.5 14.5 11 11C14.5 14.5 14.5 17.5 11 21Z'/%3E%3Cpath d='M1 11C4.5 7.5 7.5 7.5 11 11C7.5 14.5 4.5 14.5 1 11Z'/%3E%3Cpath d='M21 11C17.5 14.5 14.5 14.5 11 11C14.5 7.5 17.5 7.5 21 11Z'/%3E%3C/g%3E%3Ccircle cx='11' cy='11' r='1.6' fill='%23A8341F'/%3E%3C/svg%3E");
 
-  /* The headpiece that opens a leaf: the journey the letter is named for,
-     told in the one material its author spent forty years on.
+  /* The headpiece that opens a leaf: the title, drawn. One figure, a long
+     road, a sun still ahead of them — the human quest, and nothing else in
+     the frame.
 
-     Worked metal carries its deformation as strained, broken grains. Anneal
-     it and those grains recrystallise — the distortion resolves into clean
-     cells that meet at honest angles. So the ornament runs left to right from
-     a crumpled cell to a whole one with its bonds drawn and its centre marked:
-     the book's own line, "a journey from confusion to clarity", in the only
-     picture of it that is hers rather than borrowed.
+     Drawn flat in side elevation, the way a miniature puts someone on a road:
+     no perspective, no receding horizon, which the rest of this theme forbids
+     anyway. The distance between the walker and the sun is the point, so it
+     is left empty.
 
-     Line ornament rather than a painting on purpose. It sits directly above a
-     title, where a watercolour would compete with the type, and it stays crisp
-     at any size for no image request. */
-  --headpiece: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='68' viewBox='0 0 300 68'%3E%3Cpath d='M52.64 19.14L45.05 26.50L41.16 38.71L56.48 49.00L60.13 36.48L70.87 26.50Z' fill='none' stroke='%23C08A2E' stroke-width='0.90' opacity='0.26'/%3E%3Cpath d='M89.16 17.74L79.68 26.00L77.44 40.78L89.23 47.37L102.29 38.75L102.34 26.00Z' fill='none' stroke='%23C08A2E' stroke-width='0.97' opacity='0.33'/%3E%3Cpath d='M127.50 16.80L113.42 25.50L112.84 42.04L125.14 46.70L139.58 40.61L139.47 25.50Z' fill='none' stroke='%23C08A2E' stroke-width='1.04' opacity='0.40'/%3E%3Cpath d='M161.34 16.17L150.42 25.00L145.90 42.48L163.01 47.24L175.53 41.76L176.50 25.00Z' fill='none' stroke='%23C08A2E' stroke-width='1.11' opacity='0.48'/%3E%3Cpath d='M197.86 15.64L183.99 24.50L182.68 42.34L197.74 48.83L213.65 42.15L211.88 24.50Z' fill='none' stroke='%23C08A2E' stroke-width='1.18' opacity='0.55'/%3E%3Cpath d='M240.00 13.00L222.68 23.00L222.68 43.00L240.00 53.00L257.32 43.00L257.32 23.00Z' fill='none' stroke='%23C08A2E' stroke-width='1.4'/%3E%3Cpath d='M240 33L240.00 13.00M240 33L222.68 23.00M240 33L222.68 43.00M240 33L240.00 53.00M240 33L257.32 43.00M240 33L257.32 23.00' fill='none' stroke='%23C08A2E' stroke-width='0.85' opacity='0.85'/%3E%3Ccircle cx='240.00' cy='13.00' r='2' fill='%2322406B'/%3E%3Ccircle cx='222.68' cy='23.00' r='2' fill='%2322406B'/%3E%3Ccircle cx='222.68' cy='43.00' r='2' fill='%2322406B'/%3E%3Ccircle cx='240.00' cy='53.00' r='2' fill='%2322406B'/%3E%3Ccircle cx='257.32' cy='43.00' r='2' fill='%2322406B'/%3E%3Ccircle cx='257.32' cy='23.00' r='2' fill='%2322406B'/%3E%3Ccircle cx='240' cy='33' r='2.8' fill='%23A8341F'/%3E%3Cpath d='M24 62H276' fill='none' stroke='%23C08A2E' stroke-width='1.3' stroke-linecap='round'/%3E%3Cpath d='M24 62L28 58L24 54L20 58Z' fill='%23A8341F'/%3E%3Cpath d='M276 62L280 58L276 54L272 58Z' fill='%23A8341F'/%3E%3C/svg%3E");
+     Line ornament rather than a painting, deliberately. It sits directly above
+     a title, where a watercolour would compete with the type, and as line art
+     it stays crisp at any size for no image request. */
+  --headpiece: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='68' viewBox='0 0 300 68'%3E%3Cg stroke='%23C08A2E' stroke-width='1' opacity='0.8' stroke-linecap='round'%3E%3Cpath d='M243.00 32.00L247.00 32.00'/%3E%3Cpath d='M240.99 24.50L244.45 22.50'/%3E%3Cpath d='M235.50 19.01L237.50 15.55'/%3E%3Cpath d='M228.00 17.00L228.00 13.00'/%3E%3Cpath d='M220.50 19.01L218.50 15.55'/%3E%3Cpath d='M215.01 24.50L211.55 22.50'/%3E%3Cpath d='M213.00 32.00L209.00 32.00'/%3E%3Cpath d='M215.01 39.50L211.55 41.50'/%3E%3Cpath d='M220.50 44.99L218.50 48.45'/%3E%3Cpath d='M228.00 47.00L228.00 51.00'/%3E%3Cpath d='M235.50 44.99L237.50 48.45'/%3E%3Cpath d='M240.99 39.50L244.45 41.50'/%3E%3C/g%3E%3Ccircle cx='228.0' cy='32.0' r='12.0' fill='none' stroke='%23C08A2E' stroke-width='1.4'/%3E%3Ccircle cx='228.0' cy='32.0' r='3' fill='%23A8341F'/%3E%3Ccircle cx='104.0' cy='42.0' r='2.0' fill='%2322406B'/%3E%3Cpath d='M102.5 45.0 L105.5 45.0 L105.2 53.0 L107.6 58.0 L105.9 58.0 L104.0 53.5 L101.4 58.0 Z' fill='%2322406B'/%3E%3Cpath d='M102.8 46.0L107.0 48.0' stroke='%2322406B' stroke-width='1.2' stroke-linecap='round' fill='none'/%3E%3Cpath d='M24 58H276' fill='none' stroke='%23C08A2E' stroke-width='1.3' stroke-linecap='round'/%3E%3Cpath d='M24 58L28 54L24 50L20 54Z' fill='%23A8341F'/%3E%3Cpath d='M276 58L280 54L276 50L272 54Z' fill='%23A8341F'/%3E%3C/svg%3E");
 }
 
 *, *::before, *::after { box-sizing: border-box; }
