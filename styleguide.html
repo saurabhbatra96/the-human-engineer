@@ -1,0 +1,544 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Manuscript Leaf</title>
+<meta name="description" content="An alternative style guide for The Human Quests: gold-ruled panels, flat perspective, illustrated margins.">
+<meta name="robots" content="noindex">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/manuscript.css">
+<style>
+  /* Page-specific furniture for the guide. Everything else is the theme. */
+  .plate { margin-top: 34px; }
+  .plate + .plate { margin-top: 46px; }
+
+  .swatches {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+    gap: 18px;
+    margin-top: 30px;
+  }
+  .swatch { border: 1px solid var(--gold-deep); background: var(--paper); }
+  .swatch__chip { height: 92px; border-bottom: 1px solid var(--gold-deep); }
+  .swatch__body { padding: 14px 16px 16px; }
+  .swatch__name {
+    font-family: var(--display);
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 1.1;
+  }
+  .swatch__hex {
+    font-family: var(--sans);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 1.4px;
+    color: var(--vermilion);
+    margin-top: 6px;
+  }
+  .swatch__use {
+    font-size: 15px;
+    line-height: 1.45;
+    color: var(--ink-soft);
+    margin-top: 8px;
+  }
+
+  .specimen { border-top: 1px solid var(--gold-pale); padding-block: 22px; }
+  .specimen:last-child { border-bottom: 1px solid var(--gold-pale); }
+  .specimen__label {
+    font-family: var(--sans);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1.8px;
+    text-transform: uppercase;
+    color: var(--vermilion);
+    margin-bottom: 10px;
+  }
+  .specimen__note {
+    font-family: var(--sans);
+    font-size: 13px;
+    color: var(--ink-soft);
+    margin-top: 8px;
+  }
+
+  .plates {
+    display: grid;
+    /* Four ornaments, so four tracks — nothing sits alone on a second row. */
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    margin-top: 30px;
+  }
+  .ornament {
+    border: 1px solid var(--gold-deep);
+    background: var(--paper);
+    padding: 26px 22px 20px;
+    text-align: center;
+  }
+  .ornament__art {
+    height: 96px;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+  .ornament__art--vine { background-image: var(--vine); background-repeat: repeat-y; }
+  .ornament__art--shamsa { background-image: var(--shamsa); background-size: contain; }
+  .ornament__art--divider { background-image: var(--divider); }
+  .ornament__art--floret { background-image: var(--floret); }
+  .ornament__name {
+    font-family: var(--display);
+    font-size: 21px;
+    font-weight: 600;
+    margin-top: 12px;
+  }
+  .ornament__use {
+    font-size: 15px;
+    line-height: 1.45;
+    color: var(--ink-soft);
+    margin-top: 6px;
+  }
+
+  /* Anatomy of the ruled frame, drawn at four times scale. */
+  .anatomy {
+    display: grid;
+    grid-template-columns: minmax(0, 320px) minmax(0, 1fr);
+    gap: clamp(24px, 4vw, 48px);
+    align-items: center;
+    margin-top: 30px;
+  }
+  .anatomy__demo {
+    height: 210px;
+    background: var(--paper-deep);
+    border: 4px solid var(--gold-deep);
+    box-shadow:
+      inset 0 0 0 16px var(--paper),
+      inset 0 0 0 28px var(--gold),
+      inset 0 0 0 32px var(--gold-deep);
+  }
+  .rules { border-top: 1px solid var(--gold-pale); }
+  .rule-row {
+    display: grid;
+    grid-template-columns: 26px minmax(0, 1fr);
+    gap: 14px;
+    padding-block: 12px;
+    border-bottom: 1px solid var(--gold-pale);
+    align-items: baseline;
+  }
+  .rule-row__n {
+    font-family: var(--sans);
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--vermilion);
+  }
+  .rule-row__t { font-size: 16px; line-height: 1.45; }
+
+  .laws { display: grid; gap: 14px; margin-top: 26px; }
+  .law {
+    display: grid;
+    grid-template-columns: 22px minmax(0, 1fr);
+    gap: 14px;
+    align-items: start;
+    font-size: 17px;
+    line-height: 1.55;
+  }
+  .law__mark {
+    width: 22px; height: 22px;
+    background: var(--floret) no-repeat center;
+    margin-top: 2px;
+  }
+  .law b { font-weight: 600; }
+
+  .pages {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+    gap: 14px;
+    margin-top: 28px;
+  }
+  .pages a {
+    display: block;
+    padding: 18px 20px;
+    border: 1px solid var(--gold-deep);
+    background: var(--paper);
+    text-decoration: none;
+    font-family: var(--display);
+    font-size: 21px;
+    font-weight: 600;
+  }
+  .pages a:hover { background: var(--paper-deep); color: var(--vermilion); }
+  .pages span {
+    display: block;
+    font-family: var(--sans);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 1.4px;
+    text-transform: uppercase;
+    color: var(--vermilion);
+    margin-bottom: 6px;
+  }
+
+  pre.code {
+    margin: 24px 0 0;
+    padding: 18px 20px;
+    background: var(--lapis);
+    color: var(--on-lapis);
+    border: 1px solid var(--gold);
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    font-size: 13.5px;
+    line-height: 1.6;
+    overflow-x: auto;
+  }
+  pre.code b { color: var(--gold-pale); font-weight: 400; }
+
+  @media (max-width: 760px) {
+    .anatomy { grid-template-columns: minmax(0, 1fr); }
+  }
+</style>
+<style>
+  main::before { background-image: url(assets/img/illustrations/margin-banyan.jpg) }
+  main::after  { background-image: url(assets/img/illustrations/margin-conch.jpg) }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container container--wide site-header__inner">
+    <a class="brand" href="index.html">The Human Quests</a>
+    <nav class="nav" id="primary-nav" aria-label="Primary">
+      <a href="index.html">Home</a>
+      <a href="book.html">The Book</a>
+      <a href="archives.html">Archives</a>
+      <a href="issues/0001-annealing-the-mind.html">An Issue</a>
+      <a href="styleguide.html" aria-current="page">Style Guide</a>
+    </nav>
+    <a class="btn btn--sm header-cta" href="index.html">The site</a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav">
+      <span></span><span class="visually-hidden">Menu</span>
+    </button>
+  </div>
+</header>
+
+<main>
+
+  <section class="hero hero--center">
+    <div class="container">
+      <p class="eyebrow hero__eyebrow">An alternative style guide</p>
+      <h1>The Manuscript Leaf</h1>
+      <p class="lede">Every page a leaf: ruled in gold, painted flat, illuminated at the margins.</p>
+      <p class="body-text measure">The Gita reached most of its readers as a manuscript before it was ever a book. This treatment borrows that page &mdash; the <span class="accent">jadval</span> rules that frame a painting, the flat registers of a Pahari miniature, the vine that runs the outer margin &mdash; and holds it to modern reading standards: one column, generous measure, real contrast.</p>
+    </div>
+  </section>
+
+  <div class="band band--tan">
+    <div class="band__head">
+      <p class="eyebrow">The treatment</p>
+      <h2>Three rules, and everything follows.</h2>
+    </div>
+    <div class="cards">
+      <article class="card">
+        <h3>Gold-ruled panels</h3>
+        <p class="body-text">Nothing floats. Every block of content is a bounded field, closed on all four sides by a rule: hairline, paper gutter, gold band, hairline. The frame is the layout.</p>
+      </article>
+      <article class="card">
+        <h3>Flat perspective</h3>
+        <p class="body-text">No shadow, no gradient, no depth cue anywhere. Pictures are inlaid into the page rather than lifted above it, and colour arrives as flat registers stacked down the leaf.</p>
+      </article>
+      <article class="card">
+        <h3>Illustrated margins</h3>
+        <p class="body-text">The outer margin is not empty space, it is the <span class="accent">hashiya</span>: a double rule carrying a gold rosette, running the full height beside the text.</p>
+      </article>
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="container">
+
+      <div class="archive-section">
+        <div class="archive-section__head">
+          <p class="eyebrow">Pigments</p>
+          <h2>Six colours, ground like paint.</h2>
+          <p class="body-text measure">Taken from the palette of an eighteenth-century Pahari workshop, and from the cover of the book itself. Gold and lapis are structural; vermilion is the only voice raised.</p>
+        </div>
+
+        <div class="swatches">
+          <div class="swatch">
+            <div class="swatch__chip" style="background:#F7EFDE"></div>
+            <div class="swatch__body">
+              <p class="swatch__name">Paper</p>
+              <p class="swatch__hex">#F7EFDE</p>
+              <p class="swatch__use">The ground of every leaf. Warmer than the old cream, so gold sits on it without glaring.</p>
+            </div>
+          </div>
+          <div class="swatch">
+            <div class="swatch__chip" style="background:#EFE3C6"></div>
+            <div class="swatch__body">
+              <p class="swatch__name">Burnished paper</p>
+              <p class="swatch__hex">#EFE3C6</p>
+              <p class="swatch__use">The recessed register. Marks a panel as a distinct field without changing the key.</p>
+            </div>
+          </div>
+          <div class="swatch">
+            <div class="swatch__chip" style="background:#C08A2E"></div>
+            <div class="swatch__body">
+              <p class="swatch__name">Gold leaf</p>
+              <p class="swatch__hex">#C08A2E</p>
+              <p class="swatch__use">Every rule, every ornament. Flat ochre, never a metallic gradient &mdash; gilding on a flat page reads as colour, not shine.</p>
+            </div>
+          </div>
+          <div class="swatch">
+            <div class="swatch__chip" style="background:#8A5E1C"></div>
+            <div class="swatch__body">
+              <p class="swatch__name">Deep gold</p>
+              <p class="swatch__hex">#8A5E1C</p>
+              <p class="swatch__use">The hairline that closes a gold band on both sides. Does the work a border colour usually does.</p>
+            </div>
+          </div>
+          <div class="swatch">
+            <div class="swatch__chip" style="background:#22406B"></div>
+            <div class="swatch__body">
+              <p class="swatch__name">Lapis</p>
+              <p class="swatch__hex">#22406B</p>
+              <p class="swatch__use">The dark register, the colophon, the illuminated initial. Replaces the old near-black brown.</p>
+            </div>
+          </div>
+          <div class="swatch">
+            <div class="swatch__chip" style="background:#A8341F"></div>
+            <div class="swatch__body">
+              <p class="swatch__name">Vermilion</p>
+              <p class="swatch__hex">#A8341F</p>
+              <p class="swatch__use">Rubrics, section headings, buttons. The one colour allowed to raise its voice, so it is spent sparingly.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="archive-section">
+        <div class="archive-section__head">
+          <p class="eyebrow">Letterforms</p>
+          <h2>Three hands, each with one job.</h2>
+          <p class="body-text measure">Display and body are both Garamonds, a generation apart: Cormorant&rsquo;s high contrast carries the titles, EB Garamond&rsquo;s steadier colour carries the reading. Source Sans handles anything that is a label rather than a sentence.</p>
+        </div>
+
+        <div class="plate">
+          <div class="specimen">
+            <p class="specimen__label">Display &mdash; Cormorant Garamond 600</p>
+            <h1 style="font-size:58px">Annealing the Mind</h1>
+            <p class="specimen__note">Titles and register headings. clamp(40&ndash;70px), line-height 1.02.</p>
+          </div>
+          <div class="specimen">
+            <p class="specimen__label">Lede &mdash; Cormorant Garamond 500 italic</p>
+            <p class="lede">Strength added to a stressed structure has nowhere to go but into the cracks.</p>
+            <p class="specimen__note">One sentence under a title, set in vermilion. Never two.</p>
+          </div>
+          <div class="specimen">
+            <p class="specimen__label">Reading &mdash; EB Garamond 400</p>
+            <p class="body-text measure">A metal that has been worked hard&mdash;rolled, drawn, hammered into shape&mdash;carries the memory of that work inside it. The grains are distorted, the internal stresses locked in.</p>
+            <p class="specimen__note">17px at 1.62 for page copy, 19px at 1.66 inside an issue. Measure caps at 660px, about 68 characters.</p>
+          </div>
+          <div class="specimen">
+            <p class="specimen__label">Rubric &mdash; Source Sans 3 600</p>
+            <p class="eyebrow">One Engineering Reflection</p>
+            <p class="specimen__note">12px, 2.6px letter-spacing, uppercase, vermilion. Opens a section the way a rubricator opened a passage &mdash; in red.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="archive-section">
+        <div class="archive-section__head">
+          <p class="eyebrow">Illumination</p>
+          <h2>Four pieces of ornament, and no more.</h2>
+          <p class="body-text measure">All four are CSS background art built from inline SVG, so they cost no requests, scale without blurring, and need no change to the HTML. The restraint is the point: a fifth ornament would turn a manuscript into wallpaper.</p>
+        </div>
+
+        <div class="plates">
+          <div class="ornament">
+            <div class="ornament__art ornament__art--shamsa"></div>
+            <p class="ornament__name">Shamsa</p>
+            <p class="ornament__use">The headpiece that opens a leaf. Above the home title and every issue title, never twice on a page.</p>
+          </div>
+          <div class="ornament">
+            <div class="ornament__art ornament__art--vine"></div>
+            <p class="ornament__name">Hashiya vine</p>
+            <p class="ornament__use">Fixed in both margins, a rosette every 180px. Withdraws below 1340px, where there is no margin to illuminate.</p>
+          </div>
+          <div class="ornament">
+            <div class="ornament__art ornament__art--divider"></div>
+            <p class="ornament__name">Lotus rule</p>
+            <p class="ornament__use">Under a register heading and above a pull quote. Closes a thought; never used as a spacer.</p>
+          </div>
+          <div class="ornament">
+            <div class="ornament__art ornament__art--floret"></div>
+            <p class="ornament__name">Corner floret</p>
+            <p class="ornament__use">One in each corner of a coloured panel, inset 12px &mdash; the mark that says this field is finished.</p>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="archive-section">
+        <div class="archive-section__head">
+          <p class="eyebrow">Plates</p>
+          <h2>Painting on a printed page.</h2>
+          <p class="body-text measure">Nine watercolours, all drawn from the Gita, in two treatments. Every plate is painted on pale paper and composited with <code>mix-blend-mode: multiply</code>, so the paper it was painted on disappears into the paper of the leaf and only the pigment lands. That one decision is what keeps a rectangular JPEG from sitting on the page like a sticker.</p>
+          <p class="body-text measure" style="margin-top:18px">They are painted quiet on purpose. These plates share the page with running text, and the regality here comes from the gold rules and the typography &mdash; not from the colour of the art. Anything bright enough to pull an eye off a paragraph is wrong for this page however good it looks on its own, so saturation is held back three times over: in the prompt, again on import, and again by the theme, which renders every plate through <code>filter: saturate(var(--plate-mute))</code>. One variable turns the whole set further down.</p>
+        </div>
+
+        <div class="plate" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:26px;margin-top:30px">
+          <div>
+            <p class="specimen__label">Dissolved</p>
+            <p class="body-text">Margins, spots and inline plates carry no frame. A single radial mask eats the edges of the rectangle and the painting fades out before it reaches the text. Used where the art should feel like part of the paper.</p>
+            <div style="display:flex;gap:18px;align-items:flex-start;margin-top:20px">
+              <img class="spot" style="width:86px;height:86px" src="assets/img/illustrations/spot-flame.jpg" width="360" height="360" alt="The steady-flame spot painting">
+              <img class="spot" style="width:86px;height:86px" src="assets/img/illustrations/spot-crucible.jpg" width="360" height="360" alt="The crucible spot painting">
+              <img class="spot" style="width:86px;height:86px" src="assets/img/illustrations/spot-lotus.jpg" width="360" height="360" alt="The lotus spot painting">
+            </div>
+            <p class="specimen__note">Spots at 86px, masked to a circle, standing in for the numerals on the three home cards &mdash; those are three lenses, not three steps, so a number was never the right marker.</p>
+          </div>
+          <div>
+            <p class="specimen__label">Mounted</p>
+            <p class="body-text">The wide register plate keeps its edges and takes a gold jadval, with the verse set beneath it. A painting pasted into an album page &mdash; which is what a <span class="accent">muraqqa</span> leaf is.</p>
+            <figure class="plate-wide" style="margin-top:20px">
+              <img src="assets/img/illustrations/band-kurukshetra.jpg" width="1400" height="440" alt="The Kurukshetra register plate">
+              <figcaption>Between the two armies, before a single arrow is loosed.<cite>Bhagavad Gita 1.21</cite></figcaption>
+            </figure>
+          </div>
+        </div>
+
+        <div class="plate">
+          <div class="specimen">
+            <p class="specimen__label">The nine</p>
+            <p class="body-text measure">Five tall margin plates &mdash; the chariot (1.21), the windless lamp (6.19), the lotus unwetted by water (5.10), the inverted banyan (15.1), the conch Panchajanya (1.15). One wide register plate, the field at first light. Three circular spots: a flame, a crucible pouring, a lotus seen from above. The crucible is the one that is hers rather than the Gita&rsquo;s, and it earns its place next to <em>One Engineering Reflection</em>.</p>
+            <p class="specimen__note">The paintings shown here are the ones the site is running. They were generated from the prompt pack in <code>assets/img/illustrations/PROMPTS.md</code> and imported with <code>tools/prepare-illustration.sh</code>; the filename is the only wiring, so replacing a painting is a matter of dropping a new file in at the same name.</p>
+          </div>
+          <div class="specimen">
+            <p class="specimen__label">Hanging a plate in the margin</p>
+            <p class="body-text">A page opts into illuminated margins by naming two plates. Nothing else changes, and a page that names none keeps the plain vine.</p>
+          </div>
+        </div>
+
+        <pre class="code">&lt;style&gt;:root{
+  <b>--illus-left</b>:  url(assets/img/illustrations/margin-chariot.jpg);
+  <b>--illus-right</b>: url(assets/img/illustrations/margin-lamp.jpg);
+}&lt;/style&gt;</pre>
+      </div>
+
+      <div class="archive-section">
+        <div class="archive-section__head">
+          <p class="eyebrow">The jadval</p>
+          <h2>How a rule is built.</h2>
+          <p class="body-text measure">The ruled frame is one border plus three inset shadows &mdash; flat rings, no blur, so it reads as ruling rather than depth. Drawn here at four times the size it ships at.</p>
+        </div>
+
+        <div class="anatomy">
+          <div class="anatomy__demo"></div>
+          <div class="rules">
+            <div class="rule-row"><p class="rule-row__n">01</p><p class="rule-row__t">Outer hairline in deep gold &mdash; the edge of the field.</p></div>
+            <div class="rule-row"><p class="rule-row__n">02</p><p class="rule-row__t">Paper gutter, the width of the hairline times four. The breathing room that keeps the rules from reading as a heavy border.</p></div>
+            <div class="rule-row"><p class="rule-row__n">03</p><p class="rule-row__t">The gold band itself, three pixels at page scale.</p></div>
+            <div class="rule-row"><p class="rule-row__n">04</p><p class="rule-row__t">Inner hairline, closing the band, and then the content.</p></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="archive-section">
+        <div class="archive-section__head">
+          <p class="eyebrow">Components</p>
+          <h2>What the parts look like.</h2>
+        </div>
+
+        <div class="plate">
+          <div class="specimen">
+            <p class="specimen__label">Buttons</p>
+            <p><a class="btn" href="index.html">Subscribe to The Human Quests</a> &nbsp; <a class="btn btn--sm" href="index.html">Subscribe</a></p>
+            <p class="specimen__note">Square, flat vermilion, inset gold rule. No radius and no shadow &mdash; a gilded label, not a pill.</p>
+          </div>
+
+          <div class="specimen">
+            <p class="specimen__label">Archive row</p>
+            <div class="archive-list">
+              <article class="archive-item">
+                <p class="archive-item__meta">No. 001 &middot; 20 September 2026</p>
+                <div>
+                  <h3 class="archive-item__title"><a href="issues/0001-annealing-the-mind.html">Annealing the Mind</a></h3>
+                  <p class="body-text">Why relieving internal stress comes before adding strength&mdash;in steel and in people.</p>
+                </div>
+              </article>
+            </div>
+            <p class="specimen__note">Date in the left column as a rubric, title in the display face. The whole row warms on hover.</p>
+          </div>
+
+          <div class="specimen">
+            <p class="specimen__label">Illuminated initial</p>
+            <div class="prose" style="margin-inline:0">
+              <p>Before we can make such a metal useful again, we anneal it: heat it slowly, hold it, let it cool. Nothing is added. Something is released &mdash; and the same component survives the same load it cracked under before.</p>
+            </div>
+            <p class="specimen__note">Gold on lapis, opening the first paragraph of an issue. One per page, applied through <code>::first-letter</code> so the copy stays plain HTML.</p>
+          </div>
+
+          <div class="specimen">
+            <p class="specimen__label">Subscribe</p>
+            <form class="subscribe" data-subscribe onsubmit="return false">
+              <label class="visually-hidden" for="sg-email">Your email address</label>
+              <input id="sg-email" type="email" name="email" placeholder="Your email address" autocomplete="email">
+              <button class="btn" type="submit">Subscribe</button>
+            </form>
+            <p class="specimen__note">A ruled box, not a rounded field. The button sits inside the rule with a five-pixel inset.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <div class="band band--dark">
+    <div class="band__head">
+      <p class="eyebrow eyebrow--amber">Holding the line</p>
+      <h2 class="h2--lg">Artistry that never costs a reader anything.</h2>
+    </div>
+    <div class="container" style="max-width:760px">
+      <div class="laws">
+        <p class="law"><span class="law__mark"></span><span><b>Ornament never carries meaning.</b> Every rosette, rule and floret is decoration only; remove them all and the page still says the same thing in the same order.</span></p>
+        <p class="law"><span class="law__mark"></span><span><b>Body copy stays on paper.</b> Reading text is always ink on the pale ground. Lapis and vermilion are for titles, rubrics and single lines &mdash; never for a paragraph.</span></p>
+        <p class="law"><span class="law__mark"></span><span><b>One column, one measure.</b> The manuscript feel comes from the framing, not from cramming two columns of small type into a leaf.</span></p>
+        <p class="law"><span class="law__mark"></span><span><b>The margins give way first.</b> Below 1340px the vine goes, then the panels lose their inset, then the cards stack. Ornament is the first thing dropped, never the text.</span></p>
+        <p class="law"><span class="law__mark"></span><span><b>Flat, always.</b> If a change needs a shadow, a gradient or a blur to work, it is the wrong change.</span></p>
+      </div>
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="container">
+      <div class="archive-section__head">
+        <p class="eyebrow">Applying it</p>
+        <h2>One line per page, and reversible.</h2>
+        <p class="body-text measure">This is the theme the site now runs. It keeps the same class names as the stylesheet it replaced, so the change was one link per page and the old one is still in the repository &mdash; swapping it back restores the previous design exactly, losing nothing.</p>
+      </div>
+      <pre class="code">&lt;!-- live --&gt;
+&lt;link rel="stylesheet" href="<b>assets/css/manuscript.css</b>"&gt;
+
+&lt;!-- the previous design, still in the repository --&gt;
+&lt;link rel="stylesheet" href="<b>assets/css/style.css</b>"&gt;</pre>
+
+      <div class="pages">
+        <a href="index.html"><span>Page</span>Home</a>
+        <a href="book.html"><span>Page</span>The Book</a>
+        <a href="about.html"><span>Page</span>About</a>
+        <a href="archives.html"><span>Page</span>Archives</a>
+        <a href="issues/0001-annealing-the-mind.html"><span>Page</span>An issue</a>
+        <a href="newsletter.html"><span>Page</span>Subscribe</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container container--wide site-footer__inner">
+    <p class="site-footer__tagline">Tempering Metal. Refining Minds.</p>
+    <a href="mailto:info@umabatra.com">info@umabatra.com</a>
+  </div>
+</footer>
+
+<script src="assets/js/main.js"></script>
+</body>
+</html>

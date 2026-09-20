@@ -21,6 +21,7 @@ Live: <https://saurabhbatra96.github.io/the-human-engineer/>
 | `about.html` | About |
 | `book.html` | The Book |
 | `newsletter.html` | Newsletter (subscribe) |
+| `styleguide.html` | The Manuscript theme, documented |
 | `archives.html` | Archives — works + past issues |
 | `issues/NNNN-slug.html` | One past newsletter edition |
 | `issues/TEMPLATE.html` | Blank edition to copy |
@@ -78,6 +79,64 @@ convert "COVER.tif" -resize 1400x -shave 9x8 -strip -colors 192 \
 
 Update the `width`/`height` attributes on the `<img>` in `book.html` to match
 the new dimensions.
+
+## The Manuscript theme
+
+The site is set as an illuminated manuscript leaf: gold-ruled panels, flat
+perspective, painted margins. `assets/css/manuscript.css` holds the whole
+design, and `styleguide.html` documents it — palette, type scale, ornament,
+the anatomy of a ruled panel, and the rules the design holds to.
+
+The theme keeps the same class names as `assets/css/style.css`, the earlier
+design, which is still in the repository. Switching back is one link per page:
+
+```html
+<link rel="stylesheet" href="assets/css/style.css">
+```
+
+All ornament — the margin vine, the lotus rules, the corner florets, the
+shamsa headpiece — is CSS background art built from inline SVG. There are no
+image requests for any of it.
+
+## Illustrations
+
+Nine watercolour plates from the Gita: five tall margin plates, one wide
+register plate, three circular spots. They live in
+`assets/img/illustrations/`, **named by slot** — the filename is the only
+wiring, so replacing a file replaces the art.
+
+The originals as generated are kept in `assets/midjourney-assets/`; the web
+versions are derived from them. Prompts, per-plate saturation and crops are in
+`assets/img/illustrations/PROMPTS.md`, which also explains why this step is
+manual: Midjourney has no official API, and the third-party "Midjourney API"
+services break its terms of service.
+
+To replace a plate, generate it and re-import:
+
+```sh
+tools/prepare-illustration.sh ~/Downloads/lamp.png margin-lamp
+```
+
+That sizes the export for its slot, desaturates it to the page's level, and
+lifts the white point so the theme's `mix-blend-mode: multiply` drops the
+paper cleanly. Pass a saturation percent as a third argument to push a loud
+plate further back, or turn `--plate-mute` down in `assets/css/manuscript.css`
+to quieten every plate at once — the art sits beside running text and must
+never compete with it.
+
+A page hangs plates in its margins with two rules in its head:
+
+```html
+<style>
+  main::before { background-image: url(assets/img/illustrations/margin-chariot.jpg) }
+  main::after  { background-image: url(assets/img/illustrations/margin-lamp.jpg) }
+</style>
+```
+
+Write the URL into the rule, not into a custom property: a relative `url()`
+inside a custom property resolves against a different base in Chrome than the
+spec calls for, so the same declaration points at different files depending on
+how deep the page sits.
 
 ## Wiring up the subscribe form
 

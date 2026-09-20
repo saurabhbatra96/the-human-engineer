@@ -5,3 +5,13 @@
 # from these with ImageMagick and are what the site actually ships.
 *.tif
 *.tiff
+
+# Artifact build output
+.artifact/
+
+# Midjourney originals. 16 MB of full-resolution PNG that would otherwise be
+# published with the site on every deploy — the web plates in
+# assets/img/illustrations/ are generated from these by
+# tools/prepare-illustration.sh. Keep the originals backed up somewhere
+# durable; they are not in version control.
+assets/midjourney-assets/
