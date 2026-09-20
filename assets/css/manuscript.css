@@ -275,6 +275,7 @@ p { margin: 0; }
   font-weight: 600;
   letter-spacing: .4px;
   text-decoration: none;
+  white-space: nowrap;
   color: var(--ink);
 }
 
@@ -282,6 +283,7 @@ p { margin: 0; }
 .header-cta { flex: none; }
 .nav a {
   font-family: var(--sans);
+  white-space: nowrap;
   font-size: 12px;
   font-weight: 600;
   letter-spacing: 1.6px;
@@ -732,7 +734,12 @@ p { margin: 0; }
   .two-col, .split { grid-template-columns: minmax(0, 1fr); }
 }
 
-@media (max-width: 760px) {
+@media (max-width: 1010px) and (min-width: 951px) {
+  .nav { gap: 18px; }
+  .nav a { font-size: 11px; letter-spacing: 1.2px; }
+}
+
+@media (max-width: 950px) {
   main { width: calc(100% - 20px); padding: 10px; }
   .band { padding-inline: 20px; }
   /* Brand, subscribe and toggle have to share one row at 390px. */
@@ -837,7 +844,9 @@ main::after  { left:  calc(100% + 4px); }
 /* A painting mounted on the leaf: gold rules, hard edges, verse beneath. */
 .plate-wide {
   max-width: var(--band);
-  margin: clamp(30px, 4vw, 48px) auto 0;
+  /* Even margins: an uncaptioned plate needs the same air beneath it that the
+     caption used to occupy, or the next register crowds the painting. */
+  margin: clamp(30px, 4vw, 48px) auto;
   padding: 12px;
   border: 1px solid var(--gold-deep);
   background: var(--paper-deep);
