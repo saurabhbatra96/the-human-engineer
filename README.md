@@ -27,6 +27,7 @@ Live: <https://saurabhbatra96.github.io/the-human-engineer/>
 | `issues/TEMPLATE.html` | Blank edition to copy |
 | `connect.html` | Connect |
 | `404.html` | Not found |
+| `v1/` | The previous design, archived |
 
 ## Local preview
 
@@ -37,6 +38,26 @@ python3 -m http.server 8000
 ```
 
 Then visit <http://localhost:8000>.
+
+## The previous design, archived at /v1/
+
+`v1/` is the site exactly as it stood at commit `2bbfbde`, the last one before
+the Manuscript theme, served at
+<https://saurabhbatra96.github.io/the-human-engineer/v1/>.
+
+It carries its own copy of `assets/`, so it stays frozen no matter what
+changes at the root — an archive that shared assets with the live site would
+quietly drift. Its pages are `noindex`: a duplicate of the whole site would
+otherwise compete with the live pages in search.
+
+Regenerate it from the same commit with:
+
+```sh
+rm -rf v1 && mkdir v1 && git archive 2bbfbde | tar -x -C v1
+rm -rf v1/.github v1/README.md v1/.gitignore v1/.nojekyll
+```
+
+then re-add the `noindex` meta to each page.
 
 ## Deployment
 
