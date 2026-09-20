@@ -1,4 +1,4 @@
-# Illustration prompts — The Human Quests
+# Illustration prompts — The Human Quest
 
 Nine watercolour plates from the Gita, generated in the Midjourney web app and
 dropped into this folder. **The filename is the contract**: save each one at the

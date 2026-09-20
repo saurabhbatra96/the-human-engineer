@@ -1,7 +1,7 @@
-# The Human Quests — umabatra.com
+# The Human Quest — umabatra.com
 
 Static website for Professor Uma Batra: the weekly newsletter *The Human
-Quests* and her book *The Bhagavad Gita for Effortless Understanding*.
+Quest* and her book *The Bhagavad Gita for Effortless Understanding*.
 
 Rebuilt as hand-written HTML/CSS from the original Framer design, so the site
 is dependency-free, fast, and hostable anywhere.
