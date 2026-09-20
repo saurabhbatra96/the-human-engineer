@@ -1,0 +1,7 @@
+# macOS
+.DS_Store
+
+# Print-resolution source art — the web PNGs in assets/img/ are generated
+# from these with ImageMagick and are what the site actually ships.
+*.tif
+*.tiff

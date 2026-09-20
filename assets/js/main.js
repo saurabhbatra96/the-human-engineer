@@ -1,4 +1,4 @@
-/* The Human Engineer — small progressive-enhancement layer. */
+/* The Human Quests — small progressive-enhancement layer. */
 (function () {
   "use strict";
 
@@ -47,9 +47,9 @@
 
         var href =
           "mailto:" + FALLBACK_EMAIL +
-          "?subject=" + encodeURIComponent("Subscribe to The Human Engineer") +
+          "?subject=" + encodeURIComponent("Subscribe to The Human Quests") +
           "&body=" + encodeURIComponent(
-            "Please add this address to The Human Engineer newsletter:\n\n" + email
+            "Please add this address to The Human Quests newsletter:\n\n" + email
           );
 
         window.location.href = href;
