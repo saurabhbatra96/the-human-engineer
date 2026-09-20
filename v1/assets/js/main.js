@@ -1,4 +1,4 @@
-/* The Human Quests — small progressive-enhancement layer. */
+/* The Human Quest — small progressive-enhancement layer. */
 (function () {
   "use strict";
 
@@ -47,9 +47,9 @@
 
         var href =
           "mailto:" + FALLBACK_EMAIL +
-          "?subject=" + encodeURIComponent("Subscribe to The Human Quests") +
+          "?subject=" + encodeURIComponent("Subscribe to The Human Quest") +
           "&body=" + encodeURIComponent(
-            "Please add this address to The Human Quests newsletter:\n\n" + email
+            "Please add this address to The Human Quest newsletter:\n\n" + email
           );
 
         window.location.href = href;

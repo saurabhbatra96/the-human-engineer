@@ -50,6 +50,11 @@ changes at the root — an archive that shared assets with the live site would
 quietly drift. Its pages are `noindex`: a duplicate of the whole site would
 otherwise compete with the live pages in search.
 
+One thing in it is not frozen: the newsletter's name. The archive is there to
+show the previous *design*, and carrying a retired spelling of the title only
+invited the question of which one is right. Regenerating from `2bbfbde` brings
+the plural back, so rename it again afterwards.
+
 Regenerate it from the same commit with:
 
 ```sh
